@@ -18,7 +18,7 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
 
     private final Map<String, User> users = new HashMap<>();
 
-    private String currentUser = null;
+    private String currentUser;
 
     @Override
     public boolean existsByName(String identifier) {
@@ -36,6 +36,8 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
     }
 
     /**
+     * Sets the name of the current user in the in-memory data store.
+     * @param name the name of the user to set as the current user
      */
     @Override
     public void setCurrentUser(String name) {
@@ -43,7 +45,8 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
     }
 
     /**
-     * @return
+     * Returns the name of the current user.
+     * @return the name of the current user, or {@code null} if no user is set
      */
     @Override
     public String getCurrentUser() {
