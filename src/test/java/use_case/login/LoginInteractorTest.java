@@ -42,7 +42,7 @@ public class LoginInteractorTest {
     }
 
     @Test
-    public void successUserLoggedInest() {
+    public void successUserLoggedInTest() {
         LoginInputData inputData = new LoginInputData("Paul", "password");
         LoginUserDataAccessInterface userRepository = new InMemoryUserDataAccessObject();
 
