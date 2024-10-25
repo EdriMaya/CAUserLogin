@@ -13,8 +13,8 @@ import use_case.signup.SignupUserDataAccessInterface;
  * NOT persist data between runs of the program.
  */
 public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterface,
-                                                     LoginUserDataAccessInterface,
-                                                     ChangePasswordUserDataAccessInterface {
+        LoginUserDataAccessInterface,
+        ChangePasswordUserDataAccessInterface {
 
     private final Map<String, User> users = new HashMap<>();
 
@@ -33,6 +33,24 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
     @Override
     public User get(String username) {
         return users.get(username);
+    }
+
+    /**
+     * Sets the name of the current user in the in-memory data store.
+     * @param name the name of the user to set as the current user
+     */
+    @Override
+    public void setCurrentUser(String name) {
+        this.currentUser = name;
+    }
+
+    /**
+     * Returns the name of the current user.
+     * @return the name of the current user, or {@code null} if no user is set
+     */
+    @Override
+    public String getCurrentUser() {
+        return this.currentUser;
     }
 
     @Override
